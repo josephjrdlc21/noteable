@@ -2,6 +2,7 @@
 
 namespace App\Http\Middlewares;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Inertia\Middleware;
 
@@ -40,7 +41,7 @@ class HandleInertiaRequests extends Middleware
             'name' => config('app.name'),
             
             'auth' => [
-                'user' => $request->user(),
+                'client' => Auth::guard('web')->check() ? Auth::guard('web')->user() : null,
             ],
 
             'flash' => [
