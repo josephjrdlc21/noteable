@@ -4,6 +4,7 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuLabel, DropdownMenuGroup
 import { Lock, LogOut, User2Icon } from "lucide-react"
 import { usePage } from "@inertiajs/react"
 import { logout } from "@/routes/client/auth"
+import { initialsFormat } from "@/lib/utils"
 
 export default function Profile() {
     
@@ -13,8 +14,8 @@ export default function Profile() {
         <DropdownMenu>
             <DropdownMenuTrigger asChild>
                 <Avatar className="cursor-pointer">
-                    <AvatarImage src="#" alt="profile" />
-                    <AvatarFallback className="bg-violet-100 dark:text-gray-700">JD</AvatarFallback>
+                    <AvatarImage src={`${auth.client?.directory}/${auth.client?.filename}`}  alt="profile" />
+                    <AvatarFallback className="bg-violet-100 dark:text-gray-700">{initialsFormat(auth.client?.name)}</AvatarFallback>
                 </Avatar>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
