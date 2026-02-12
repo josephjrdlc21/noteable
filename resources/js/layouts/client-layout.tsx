@@ -6,7 +6,7 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
         <>
             <AppNotification />
             <Topbar/>
-            <div className="p-4 mx-auto max-w-7xl">
+            <div className="px-4 py-10 mx-auto max-w-7xl">
                 {children}
             </div>
         </>

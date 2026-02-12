@@ -19,7 +19,7 @@ test('authenticate client credentials', function () {
     $client = User::factory()->auth()->create();
 
     $login_client = [
-        'email' => 'johndoe@gmail.com',
+        'email' => $client->email,
         'password' => 'Aa@12345',
     ];
 
