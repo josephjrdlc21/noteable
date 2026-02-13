@@ -28,3 +28,20 @@ export function initialsFormat(name?: string | null): string {
 
 	return initials;
 }
+
+export function formatDateTime(isoString: string): string {
+	if (!isoString) return '';
+
+	const date = new Date(isoString);
+
+	const options: Intl.DateTimeFormatOptions = {
+		year: 'numeric',
+		month: 'long',
+		day: 'numeric',
+		hour: 'numeric',
+		minute: '2-digit',
+		hour12: true,
+	};
+
+	return new Intl.DateTimeFormat('en-US', options).format(date);
+}

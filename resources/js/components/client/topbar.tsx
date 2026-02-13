@@ -3,6 +3,8 @@ import { Sheet, SheetContent, SheetTrigger, SheetHeader, SheetTitle,
     SheetDescription } from "@/components/ui/sheet"
 import { Button } from "@/components/ui/button"
 import Profile from "@/components/client/profile"
+import { dashboard } from "@/routes/client"
+import { index } from "@/routes/client/notes"
 
 export default function Topbar() {
     return (
@@ -17,13 +19,13 @@ export default function Topbar() {
 
                 <div className="hidden items-center gap-3 md:flex">
                     <a
-                        href="#"
+                        href={dashboard.url()}
                         className="rounded-md px-3 py-2 text-sm font-medium text-muted-foreground transition-all duration-200 hover:bg-primary/10 hover:text-primary"
                     >
                         Dashboard
                     </a>
                     <a
-                        href="#"
+                        href={index.url()}
                         className="rounded-md px-3 py-2 text-sm font-medium text-muted-foreground transition-all duration-200 hover:bg-primary/10 hover:text-primary"
                     >
                         Notes

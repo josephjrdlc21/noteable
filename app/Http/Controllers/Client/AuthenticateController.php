@@ -11,7 +11,6 @@ class AuthenticateController extends Controller{
 
     public function __construct(AuthenticateRepositoryInterface $authenticate_repository) {
         parent::__construct();
-        $this->per_page = env("DEFAULT_PER_PAGE", 10);
         $this->authenticate_repository = $authenticate_repository;
     }
 

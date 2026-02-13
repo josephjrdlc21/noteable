@@ -22,5 +22,6 @@ class RepositoryServiceProvider extends ServiceProvider
         // Client Repositories
         $this->app->bind(\App\Interfaces\Client\MainRepositoryInterface::class,\App\Repositories\Client\MainRepository::class);
         $this->app->bind(\App\Interfaces\Client\AuthenticateRepositoryInterface::class,\App\Repositories\Client\AuthenticateRepository::class);
+        $this->app->bind(\App\Interfaces\Client\NoteRepositoryInterface::class,\App\Repositories\Client\NoteRepository::class);
     }
 }

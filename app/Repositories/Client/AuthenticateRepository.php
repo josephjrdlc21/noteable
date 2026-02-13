@@ -7,13 +7,12 @@ use App\Interfaces\Client\AuthenticateRepositoryInterface;
 use App\Models\User;
 
 use Illuminate\Support\Facades\Auth;
-use Inertia\Inertia;
 
 class AuthenticateRepository implements AuthenticateRepositoryInterface{
 
     public function login() {
        
-        return Inertia::render('client/auth/login');
+        return inertia('client/auth/login');
     }
     
     public function authenticate(array $data) {

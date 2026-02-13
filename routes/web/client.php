@@ -15,6 +15,11 @@ Route::group(['as' => "client.", 'namespace' => $namespace], function() {
         Route::get('dashboard', ['as' => "dashboard", 'uses' => "MainController@dashboard"]);
 
         Route::group(['prefix' => "notes", 'as' => "notes."], function () {
+            Route::get('/', ['as' => "index", 'uses' => "NoteController@index"]);
+            Route::post('store', ['as' => "store", 'uses' => "NoteController@store"]);
+            Route::get('edit/{id?}', ['as' => "edit", 'uses' => "NoteController@edit"]);
+            Route::post('update/{id?}', ['as' => "update", 'uses' => "NoteController@update"]);
+            Route::any('delete/{id?}', ['as' => "delete", 'uses' => "NoteController@destroy"]);
         });
     });
 });
