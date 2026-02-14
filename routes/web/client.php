@@ -19,6 +19,7 @@ Route::group(['as' => "client.", 'namespace' => $namespace], function() {
             Route::post('store', ['as' => "store", 'uses' => "NoteController@store"]);
             Route::get('edit/{id?}', ['as' => "edit", 'uses' => "NoteController@edit"]);
             Route::post('update/{id?}', ['as' => "update", 'uses' => "NoteController@update"]);
+            Route::get('show/{id?}', ['as' => "show", 'uses' => "NoteController@show"]);
             Route::any('delete/{id?}', ['as' => "delete", 'uses' => "NoteController@destroy"]);
         });
     });

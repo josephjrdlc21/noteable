@@ -1,12 +1,12 @@
 import ClientLayout from "@/layouts/client-layout"
-import EditForm from "@/features/client/notes/edit-form"
+import SingleNote from "@/features/client/notes/single-note";
 import { Note } from "@/types/client/notes"
 
-export default function Edit({ note }: { note: Note }) {
+export default function Show({ note }: { note: Note }) {
     
     return (
         <ClientLayout>
-            <EditForm note={note} />
+            <SingleNote note={note} />
         </ClientLayout>
     )
 }

@@ -2,8 +2,8 @@ export interface Note {
     id: number;
     user_id: number;
     user_name: string;
-    amount: string;
-    budget_date: string;
+    title: string;
+    content: string;
 
     created_at: string;
     updated_at: string;

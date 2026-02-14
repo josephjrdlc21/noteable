@@ -1,7 +1,7 @@
 import { Avatar, AvatarFallback, AvatarImage, } from "@/components/ui/avatar"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuLabel, DropdownMenuGroup, 
     DropdownMenuItem, DropdownMenuSeparator, DropdownMenuTrigger, } from "@/components/ui/dropdown-menu"
-import { Lock, LogOut, User2Icon } from "lucide-react"
+import { Lock, LogOut, User2Icon, Settings } from "lucide-react"
 import { usePage } from "@inertiajs/react"
 import { logout } from "@/routes/client/auth"
 import { initialsFormat } from "@/lib/utils"
@@ -28,13 +28,8 @@ export default function Profile() {
                 <DropdownMenuSeparator />
                 <DropdownMenuGroup>
                     <DropdownMenuItem asChild className="cursor-pointer">
-                        <a href="#"><User2Icon/> Profile </a>
+                        <a href="#"><Settings/> Settings </a>
                     </DropdownMenuItem>
-                    <DropdownMenuItem asChild className="cursor-pointer">
-                        <a href="#"><Lock/> Change Password</a>
-                    </DropdownMenuItem>
-                </DropdownMenuGroup>
-                <DropdownMenuGroup>
                     <DropdownMenuItem asChild className="cursor-pointer">
                         <a href={logout.url()}><LogOut/> Logout</a>
                     </DropdownMenuItem>

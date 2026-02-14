@@ -5,6 +5,7 @@ import { NotesListProps } from "@/types/client/notes"
 import { formatDateTime } from "@/lib/utils"
 import AppPagination from "@/components/app-pagination"
 import { Separator } from "@/components/ui/separator"
+import { show, edit, deleteMethod } from "@/routes/client/notes"
 
 export default function NotesList({ list }: NotesListProps) {
     const notes = Array.isArray(list.data) ? list.data : list.data ? [list.data] : []
@@ -27,22 +28,30 @@ export default function NotesList({ list }: NotesListProps) {
                                         variant="ghost"
                                         size="icon"
                                         className="h-8 w-8 text-muted-foreground hover:text-foreground"
+                                        asChild
                                     >
-                                        <EyeIcon className="h-4 w-4" />
+                                        <a href={show.url(note.id)}>
+                                            <EyeIcon className="h-4 w-4" />
+                                        </a>
                                     </Button>
                                     <Button
                                         variant="ghost"
                                         size="icon"
                                         className="h-8 w-8 text-muted-foreground hover:text-foreground"
+                                        asChild
                                     >
-                                        <Edit className="h-4 w-4" />
+                                        <a href={edit.url(note.id)}>
+                                            <Edit className="h-4 w-4" />
+                                        </a>
                                     </Button>
                                     <Button
                                         variant="ghost"
                                         size="icon"
                                         className="h-8 w-8 text-muted-foreground hover:text-destructive"
                                     >
-                                        <Trash2 className="h-4 w-4" />
+                                        <a href={deleteMethod.url(note.id)}>
+                                            <Trash2 className="h-4 w-4" />
+                                        </a>
                                     </Button>
                                 </div>
                             </div>

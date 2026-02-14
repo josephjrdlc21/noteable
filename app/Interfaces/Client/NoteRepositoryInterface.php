@@ -8,5 +8,6 @@ interface NoteRepositoryInterface {
     public function store(array $data);
     public function edit(int $id);
     public function update(int $id, array $data);
+    public function show(int $id);
     public function destroy(int $id);
 }

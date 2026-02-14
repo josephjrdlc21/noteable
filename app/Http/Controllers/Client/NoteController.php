@@ -41,6 +41,11 @@ class NoteController extends Controller{
         return $this->note_repository->update($id, $data);
     }
 
+    public function show(PageRequest $request, $id = null) {
+
+        return $this->note_repository->show($id);
+    }
+
     public function destroy(PageRequest $request, $id = null) {
 
         return $this->note_repository->destroy($id);

@@ -86,6 +86,18 @@ class NoteRepository implements NoteRepositoryInterface{
         return redirect()->route('client.notes.index');
     }
 
+    public function show(int $id) {
+        $data['note'] = Note::find($id);
+
+        if (!$data['note']) {
+            session()->flash('notification-status', "failed");
+            session()->flash('notification-msg', "Record not found.");
+            return redirect()->back();
+        }
+
+        return inertia('client/notes/show', $data);
+    }
+
     public function destroy(int $id) {
         $note = Note::find($id);
 

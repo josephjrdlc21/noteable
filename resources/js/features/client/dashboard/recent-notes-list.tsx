@@ -42,7 +42,7 @@ export default function RecentNotesList() {
     ];
 
     return (
-        <div className="w-full rounded-lg shadow-sm border mt-5">
+        <div className="w-full rounded-lg border mt-5">
             <div className="px-6 py-4 border-b border-gray-200">
                 <h2 className="text-lg font-semibold ">Latest Notes</h2>
             </div> 

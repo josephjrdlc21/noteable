@@ -88,6 +88,27 @@ test('update note details', function () {
         ->content->toBe($update_note['content']);
 });
 
+test('show single note details', function () {
+
+    $user = User::factory()->create();
+
+    $user_note = [
+        'user_id' => $user->id,
+    ];
+
+    $note = Note::factory()->create($user_note);
+
+    $this->withMiddleware()
+        ->actingAs($user, 'web')
+        ->get(route('client.notes.show', $note->id))
+        ->assertOk()
+        ->assertInertia(function (Assert $page) {
+            $page->component('client/notes/show');
+        });
+    
+    expect(Note::find($note->id))->not()->toBeNull();
+});
+
 test('delete note', function () {
 
     $user = User::factory()->create();
