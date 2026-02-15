@@ -29,6 +29,7 @@
         "typescript-eslint": "^8.23.0"
     },
     "dependencies": {
+        "@google/genai": "^1.41.0",
         "@inertiajs/react": "^2.3.7",
         "@tailwindcss/vite": "^4.1.11",
         "@types/react": "^19.2.0",
@@ -44,6 +45,7 @@
         "radix-ui": "^1.4.3",
         "react": "^19.2.0",
         "react-dom": "^19.2.0",
+        "react-textarea-autosize": "^8.5.9",
         "sonner": "^2.0.7",
         "tailwind-merge": "^3.4.0",
         "tailwindcss": "^4.0.0",

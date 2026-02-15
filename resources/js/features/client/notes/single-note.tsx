@@ -9,7 +9,7 @@ import { Separator } from "@/components/ui/separator"
 export default function SingleNote({ note }: { note: Note }) {
 
     return (
-        <Card className="w-full overflow-hidden">
+        <Card className="w-full overflow-hidden shadow-none">
             <CardHeader className="pb-3">
                 <div className="flex items-start justify-between gap-2">
                     <div className="flex-1 space-y-1">

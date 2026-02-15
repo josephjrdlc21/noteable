@@ -25,7 +25,7 @@ export default function EditForm({ note }: { note: Note}) {
 
     return (
         <form onSubmit={handleSubmit}>
-            <Card className="w-full">
+            <Card className="w-full shadow-none">
                 <CardHeader>
                     <CardTitle>Update notes details</CardTitle>
                     <CardDescription>

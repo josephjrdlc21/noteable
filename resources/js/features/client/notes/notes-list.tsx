@@ -14,7 +14,7 @@ export default function NotesList({ list }: NotesListProps) {
         <>
             <div className="grid grid-cols-1 lg:grid-cols-3 mt-10 gap-4 mb-10">
                 {notes.map((note) => (
-                    <Card key={note.id} className="h-[200px] w-full overflow-hidden">
+                    <Card key={note.id} className="h-[200px] shadow-none w-full overflow-hidden">
                         <CardHeader className="pb-3">
                             <div className="flex items-start justify-between gap-2">
                                 <div className="flex-1 space-y-1">
