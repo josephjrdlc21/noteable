@@ -24,5 +24,9 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(\App\Interfaces\Client\AuthenticateRepositoryInterface::class,\App\Repositories\Client\AuthenticateRepository::class);
         $this->app->bind(\App\Interfaces\Client\NoteRepositoryInterface::class,\App\Repositories\Client\NoteRepository::class);
         $this->app->bind(\App\Interfaces\Client\ProfileRepositoryInterface::class,\App\Repositories\Client\ProfileRepository::class);
+
+        // Admin Repositories
+        $this->app->bind(\App\Interfaces\Admin\MainRepositoryInterface::class,\App\Repositories\Admin\MainRepository::class);
+        $this->app->bind(\App\Interfaces\Admin\AuthenticateRepositoryInterface::class,\App\Repositories\Admin\AuthenticateRepository::class);
     }
 }
