@@ -12,7 +12,9 @@ use Illuminate\Support\Facades\DB;
 class NoteRepository implements NoteRepositoryInterface{
 
     public function index(array $data) {
-        $data['records'] = Note::latest()->paginate($data['per_page'])->withQueryString();
+        $user = Auth::guard('web')->user();
+
+        $data['records'] = Note::where('user_id', $user->id)->latest()->paginate($data['per_page'])->withQueryString();
 
         return inertia('client/notes/index', $data);
     }

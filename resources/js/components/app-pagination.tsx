@@ -11,7 +11,7 @@ export default function AppPagination({ links }: PaginationProps) {
     const numberLinks = links.slice(1, -1);
 
     return (
-        <Pagination className="py-3 w-full">
+        <Pagination className="w-full">
             <PaginationContent className="relative flex w-full items-center">
                 
                 {/* LEFT: Previous */}
@@ -45,6 +45,7 @@ export default function AppPagination({ links }: PaginationProps) {
                         return (
                             <PaginationItem key={link.page ?? index}>
                                 <PaginationLink
+                                className="shadow-none"
                                 size="sm"
                                 href={link.url}
                                 isActive={link.active}

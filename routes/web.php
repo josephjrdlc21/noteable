@@ -44,5 +44,9 @@ Route::group(['prefix' => "admin", 'as' => "admin.", 'namespace' => $admin_names
 
     Route::group(['middleware' => "admin.auth"], function () {
         Route::get('/', ['as' => "dashboard", 'uses' => "MainController@dashboard"]);
+
+        Route::group(['prefix' => "users", 'as' => "users."], function () {
+            Route::get('/', ['as' => "index", 'uses' => "UserController@index"]);
+        });
     });
 });

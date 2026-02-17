@@ -10,7 +10,7 @@ export function statusBadgeClass(status?: string | null): string {
 
 	switch (status.toLowerCase()){
 		case "active":
-			return "default";
+			return "success";
 
 		case "inactive":
 			return "destructive";
@@ -58,4 +58,20 @@ export function toHtmlDate(value?: string | Date | null): string {
     const day = String(date.getDate()).padStart(2, "0");
 
     return `${year}-${month}-${day}`;
+}
+
+export function dateTime(input: string): string {
+    if (!input) return "";
+
+    const date = new Date(input);
+
+    return new Intl.DateTimeFormat("en-US", {
+        timeZone: "Asia/Singapore",
+        month: "2-digit",
+        day: "2-digit",
+        year: "numeric",
+        hour: "2-digit",
+        minute: "2-digit",
+        hour12: true,
+    }).format(date);
 }

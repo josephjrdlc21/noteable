@@ -4,7 +4,7 @@ import { AppSidebar } from "@/components/admin/sidebar"
 import { Separator } from "@/components/ui/separator"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import Footer from "@/components/admin/footer"
 import AppNotification from "@/components/app-notification"
 import Profile from "@/components/admin/profile"
 
@@ -13,7 +13,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         <SidebarProvider>
             <AppSidebar />
             <SidebarInset>
-                <header className="flex shrink-0 items-center justify-between border-b px-6 h-[65px] shadow-sm">
+                <header className="flex shrink-0 items-center justify-between border-b px-4 h-[65px] shadow-sm">
                     <div className="flex items-center gap-2">
                         <SidebarTrigger className="-ml-1" />
                         <Separator orientation="vertical" className="h-6" />
@@ -46,6 +46,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                     <AppNotification />
                     {children}
                 </div>
+                <Footer />
             </SidebarInset>
         </SidebarProvider>    
     )

@@ -2,13 +2,16 @@ import * as React from "react"
 import { Home, Users, Calendar, NotebookText } from "lucide-react"
 import { Sidebar, SidebarContent, SidebarGroup, SidebarGroupContent, SidebarGroupLabel, SidebarHeader, SidebarMenu,
     SidebarMenuButton, SidebarMenuItem, SidebarRail } from "@/components/ui/sidebar"
+import { dashboard } from "@/routes/admin"
+import { index as users } from "@/routes/admin/users"
 
 const data = {
     menu: [
         {
             title: "Dashboard",
-            url: "#",
+            url: dashboard.url(),
             icon: Home,
+            isActive: location.pathname === dashboard.url(),
         },
     ],
     pages: [
@@ -16,11 +19,13 @@ const data = {
             title: "Clients",
             url: "#",
             icon: Users,
+            isActive: false,
         },
         {
             title: "Accounts",
-            url: "#",
+            url: users.url(),
             icon: Users,
+            isActive: location.pathname === users.url(),
         },
     ],
     apps: [
@@ -28,12 +33,13 @@ const data = {
             title: "Notes",
             url: "#",
             icon: NotebookText,
-            isActive: true,
+            isActive: false,
         },
         {
             title: "Activities",
             url: "#",
             icon: Calendar,
+            isActive: false,
         },
     ],
 }
@@ -58,7 +64,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                         <SidebarMenu>
                             {data.menu.map((item) => (
                                 <SidebarMenuItem key={item.title}>
-                                    <SidebarMenuButton asChild className="px-3">
+                                    <SidebarMenuButton asChild isActive={item.isActive} className="px-3">
                                         <a href={item.url} className="py-5">
                                             <item.icon className="h-4 w-4" />
                                             <span>{item.title}</span>
@@ -78,7 +84,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                         <SidebarMenu>
                             {data.pages.map((item) => (
                                 <SidebarMenuItem key={item.title}>
-                                    <SidebarMenuButton asChild className="px-3">
+                                    <SidebarMenuButton asChild isActive={item.isActive} className="px-3">
                                         <a href={item.url} className="py-5">
                                             <item.icon className="h-4 w-4" />
                                             <span>{item.title}</span>
