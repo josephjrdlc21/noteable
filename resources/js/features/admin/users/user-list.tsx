@@ -8,7 +8,7 @@ import Action from "@/features/admin/users/action"
 import { dateTime, statusBadgeClass } from "@/lib/utils"
 import { Badge } from "@/components/ui/badge"
 
-export default function UserList({ records, filters }: { records: Pagination, filters: Filter }) {
+export default function UserList({ records }: { records: Pagination }) {
     const users = Array.isArray(records.data) ? records.data : records.data ? [records.data] : []
 
     return (

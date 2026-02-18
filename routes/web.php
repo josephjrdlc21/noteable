@@ -47,6 +47,14 @@ Route::group(['prefix' => "admin", 'as' => "admin.", 'namespace' => $admin_names
 
         Route::group(['prefix' => "users", 'as' => "users."], function () {
             Route::get('/', ['as' => "index", 'uses' => "UserController@index"]);
+            Route::get('create', ['as' => "create", 'uses' => "UserController@create"]);
+            Route::post('store', ['as' => "store", 'uses' => "UserController@store"]);
+            Route::get('edit/{id?}', ['as' => "edit", 'uses' => "UserController@edit"]);
+            Route::post('update/{id?}', ['as' => "update", 'uses' => "UserController@update"]);
+            Route::get('update-status/{id?}', ['as' => "update_status", 'uses' => "UserController@update_status"]);
+            Route::get('update-password/{id?}', ['as' => "update_password", 'uses' => "UserController@update_password"]);
+            Route::any('delete/{id?}', ['as' => "delete", 'uses' => "UserController@destroy"]);
+            Route::get('show/{id?}', ['as' => "show", 'uses' => "UserController@show"]);
         });
     });
 });

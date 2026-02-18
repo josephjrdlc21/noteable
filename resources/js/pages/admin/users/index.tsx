@@ -21,11 +21,12 @@ export default function Index({ records, filters }: { records: Pagination, filte
                 </BreadcrumbList>
             </BreadcrumbRoot>
 
-            <Filters />
+            <Filters 
+                filters={filters} 
+            />
 
             <UserList 
                 records={records} 
-                filters={filters} 
             />
         </AdminLayout>
     )

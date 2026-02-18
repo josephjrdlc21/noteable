@@ -26,13 +26,6 @@ class AuthenticateRepository implements AuthenticateRepositoryInterface{
         if(Auth::guard("admin")->attempt(['email' => $email, 'password' => $password], $remember_me)){
             $account = Auth::guard("admin")->user();
 
-            if(!$account->email_verified_at) {
-                session()->flash('notification-status', "warning");
-                session()->flash('notification-msg', "Account is not verified.");
-
-                Auth::guard("admin")->logout();
-            }
-
             if($account->status == "inactive") {
                 session()->flash('notification-status', "warning");
                 session()->flash('notification-msg', "Account is inactive.");

@@ -12,6 +12,8 @@ export interface Note {
 
 export interface Filter {
     keyword: string | null;
+    start_date: string | null;
+    end_date: string | null;
 }
 
 export interface Link {

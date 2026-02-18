@@ -2,6 +2,8 @@
 
 namespace App\Services;
 
+use App\Models\Admin;
+
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Validator;
 use Propaganistas\LaravelPhone\PhoneNumber;
@@ -18,6 +20,11 @@ class CustomValidator extends Validator {
         switch (strtolower($type)) {
             case 'user':
                 return User::where('email', $email)
+                    ->where('id', '<>', $id)
+                    ->count() ? false : true;
+                break;
+            case 'admin':
+                return Admin::where('email', $email)
                     ->where('id', '<>', $id)
                     ->count() ? false : true;
                 break;
