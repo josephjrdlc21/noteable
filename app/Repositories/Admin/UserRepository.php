@@ -35,6 +35,7 @@ class UserRepository implements UserRepositoryInterface{
                 }
             });
         })
+        ->where('id', '!=', "1")
         ->latest()
         ->paginate($data['per_page'])
         ->withQueryString();
