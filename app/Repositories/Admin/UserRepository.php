@@ -53,8 +53,8 @@ class UserRepository implements UserRepositoryInterface{
             $password = Str::random(8);
 
             $admin = new Admin;
-            $admin->name = $data['title'];
-            $admin->email = $data['content'];
+            $admin->name = $data['name'];
+            $admin->email = $data['email'];
             $admin->status = "active";
             $admin->password = bcrypt($password);
             $admin->save();
@@ -213,6 +213,6 @@ class UserRepository implements UserRepositoryInterface{
             return redirect()->back();
         }
 
-        return inertia('admin/users/edit', $data);
+        return inertia('admin/users/show', $data);
     }
 }

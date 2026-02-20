@@ -2,11 +2,12 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/componen
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import { Button } from "@/components/ui/button"
 import { Plus } from "lucide-react"
-import { Pagination, Filter } from "@/types/admin/user"
+import { Pagination } from "@/types/admin/user"
 import AppPagination from "@/components/app-pagination"
 import Action from "@/features/admin/users/action"
 import { dateTime, statusBadgeClass } from "@/lib/utils"
 import { Badge } from "@/components/ui/badge"
+import { create } from "@/routes/admin/users"
 
 export default function UserList({ records }: { records: Pagination }) {
     const users = Array.isArray(records.data) ? records.data : records.data ? [records.data] : []
@@ -16,8 +17,10 @@ export default function UserList({ records }: { records: Pagination }) {
             <CardHeader className="flex flex-col md:flex-row md:items-center justify-between">
                 <CardTitle>User List</CardTitle>
                 <div>
-                    <Button size="sm">
-                        <Plus />Create User
+                    <Button size="sm" asChild>
+                        <a href={create.url()}>
+                            <Plus />Create User
+                        </a>
                     </Button>
                 </div>
             </CardHeader>
@@ -43,13 +46,13 @@ export default function UserList({ records }: { records: Pagination }) {
                             <TableRow key={user.id} className="hover:bg-transparent">
                                 <TableCell className="min-w-[200px] border-b border-l border-r">{user.name}</TableCell>
                                 <TableCell className="min-w-[200px] border-b border-l border-r">{user.email}</TableCell>
-                                <TableCell className="min-w-[200px] border-b border-l border-r">{dateTime(user.last_login_at)}</TableCell>
+                                <TableCell className="min-w-[200px] border-b border-l border-r">{user.last_login_at ? dateTime(user.last_login_at) : "N/A"}</TableCell>
                                 <TableCell className="min-w-[100px] border-b border-l border-r text-center">
                                     <Badge variant={statusBadgeClass(user.status) as any} className="py-1 px-2">{user.status}</Badge>
                                 </TableCell>
                                 <TableCell className="min-w-[200px] border-b border-l">{dateTime(user.created_at)}</TableCell>
                                 <TableCell className="min-w-[150px] border-b border-l border-r text-center">
-                                    <Action />
+                                    <Action id={user.id} />
                                 </TableCell>
                             </TableRow>
                         ))

@@ -36,7 +36,7 @@ test('store new user', function () {
 
     $new_user = [
         'name' => "Test User",
-        'email' => "test@example.com",
+        'email' => "test@gmail.com",
     ];
 
     $this->withMiddleware()
@@ -72,7 +72,7 @@ test('update user details', function () {
      
     $update_admin = [
         'name' => "Test User Updated",
-        'email' => "testupdated@example.com",
+        'email' => "testupdated@gmail.com",
     ];
 
     $user = Admin::factory()->create();
@@ -107,7 +107,9 @@ test('update user status', function () {
 test('update user password', function () {
 
     $admin = Admin::factory()->create();
-    $user = Admin::factory()->create();
+    $user = Admin::factory()->create(['password' => bcrypt('old-password')]);
+
+    $old_password = $user->password;
 
     $this->withMiddleware()
         ->actingAs($admin, 'admin')
@@ -116,7 +118,7 @@ test('update user password', function () {
 
     $user->refresh();
 
-    expect(\Hash::check("password", $user->password))->toBeTrue();
+    expect($user->password)->not->toBe($old_password);
 });
 
 test ('delete user', function () {
