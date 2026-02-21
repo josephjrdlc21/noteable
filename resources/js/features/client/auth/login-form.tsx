@@ -50,7 +50,7 @@ export function LoginForm({className, ...props}: React.ComponentProps<"div">) {
                                         Forgot your password?
                                     </a>
                                 </div>
-                                <Input id="password" type="password" value={form.data.password} onChange={(e) => form.setData('password', e.target.value)} />
+                                <Input id="password" type="password" value={form.data.password} onChange={(e) => form.setData('password', e.target.value)} placeholder="**********" />
                             </Field>
                             <Field>
                                 <Button type="submit" disabled={form.processing}>
