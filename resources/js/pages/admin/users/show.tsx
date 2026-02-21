@@ -20,7 +20,7 @@ export default function Show({ user }: { user: User}) {
                 </BreadcrumbList>
             </BreadcrumbRoot>
 
-            <div className="w-full max-w-2xl">
+            <div className="w-full max-w-xl">
                 <UserDetails 
                     user={user} 
                 />

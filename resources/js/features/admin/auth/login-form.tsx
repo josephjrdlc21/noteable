@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Field, FieldDescription, FieldGroup, FieldLabel } from "@/components/ui/field"
+import { Field, FieldGroup, FieldLabel } from "@/components/ui/field"
 import { Input } from "@/components/ui/input"
 import { NotebookText, LoaderCircle } from "lucide-react"
 import { authenticate } from "@/routes/admin/auth"
@@ -33,7 +33,7 @@ export function LoginForm({className, ...props}: React.ComponentProps<"div">) {
                         <span>Admin Portal</span>
                     </CardTitle>
                     <CardDescription>
-                        Enter your credetials below to login
+                        Enter your credentials below to login
                     </CardDescription>
                 </CardHeader>
                 <CardContent>

@@ -1,9 +1,10 @@
 import { BreadcrumbRoot, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbTitle, 
     BreadcrumbPage, BreadcrumbSeparator } from "@/components/admin/breadcrumb"
-import CreateForm from "@/features/admin/users/create-form"
+import ClientDetails from "@/features/admin/clients/client-details"
 import AdminLayout from "@/layouts/admin-layout"
+import { Client } from "@/types/admin/client"
 
-export default function Create() {
+export default function Show({ client }: { client: Client}) {
     return (
         <AdminLayout>
             <BreadcrumbRoot>
@@ -14,13 +15,15 @@ export default function Create() {
                     </BreadcrumbItem>
                     <BreadcrumbSeparator />
                     <BreadcrumbItem>
-                        <BreadcrumbPage>Create User</BreadcrumbPage>
+                        <BreadcrumbPage>Show Details</BreadcrumbPage>
                     </BreadcrumbItem>
                 </BreadcrumbList>
             </BreadcrumbRoot>
 
             <div className="w-full max-w-xl">
-                <CreateForm />
+                <ClientDetails 
+                    client={client} 
+                />
             </div>
         </AdminLayout>
     )

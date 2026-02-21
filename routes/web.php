@@ -56,5 +56,12 @@ Route::group(['prefix' => "admin", 'as' => "admin.", 'namespace' => $admin_names
             Route::any('delete/{id?}', ['as' => "delete", 'uses' => "UserController@destroy"]);
             Route::get('show/{id?}', ['as' => "show", 'uses' => "UserController@show"]);
         });
+
+        Route::group(['prefix' => "clients", 'as' => "clients."], function () {
+            Route::get('/', ['as' => "index", 'uses' => "ClientController@index"]);
+            Route::get('update-status/{id?}', ['as' => "update_status", 'uses' => "ClientController@update_status"]);
+            Route::any('delete/{id?}', ['as' => "delete", 'uses' => "ClientController@destroy"]);
+            Route::get('show/{id?}', ['as' => "show", 'uses' => "ClientController@show"]);
+        });
     });
 });

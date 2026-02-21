@@ -4,6 +4,7 @@ import { Sidebar, SidebarContent, SidebarGroup, SidebarGroupContent, SidebarGrou
     SidebarMenuButton, SidebarMenuItem, SidebarRail } from "@/components/ui/sidebar"
 import { dashboard } from "@/routes/admin"
 import { index as users } from "@/routes/admin/users"
+import { index as clients } from "@/routes/admin/clients"
 
 const data = {
     menu: [
@@ -17,9 +18,9 @@ const data = {
     pages: [
         {
             title: "Clients",
-            url: "#",
+            url: clients.url(),
             icon: Users,
-            isActive: false,
+            isActive: location.pathname === clients.url(),
         },
         {
             title: "Accounts",
