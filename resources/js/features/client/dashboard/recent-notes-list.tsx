@@ -1,45 +1,9 @@
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { Button } from "@/components/ui/button";
+import { RecentNotes } from "@/types/client/dashboard";
+import { formatDateTime } from "@/lib/utils";
 
-interface DataItem {
-  name: string;
-  email: string;
-  date: string;
-}
-
-export default function RecentNotesList() {
-    const sampleData: DataItem[] = [
-        {
-            name: 'Jacob Hunter',
-            email: 'jacob.hunter@email.com',
-            date: '04 Oct, 2019',
-        },
-        {
-            name: 'Ronald Taylor',
-            email: 'ronald.taylor@email.com',
-            date: '04 Oct, 2019',
-        },
-        {
-            name: 'Barry Dick',
-            email: 'barry.dick@email.com',
-            date: '05 Oct, 2019',
-        },
-        {
-            name: 'Juan Mitchell',
-            email: 'juan.mitchell@email.com',
-            date: '06 Oct, 2019',
-        },
-        {
-            name: 'Jamal Burnett',
-            email: 'jamal.burnett@email.com',
-            date: '07 Oct, 2019',
-        },
-        {
-            name: 'Neal Matthews',
-            email: 'neal.matthews@email.com',
-            date: '07 Oct, 2019',
-        },
-    ];
+export default function RecentNotesList({ recent_notes }: { recent_notes: RecentNotes[] }) {
+    const notes = Array.isArray(recent_notes) ? recent_notes : recent_notes ? [recent_notes] : []
 
     return (
         <div className="w-full rounded-lg border mt-5">
@@ -56,13 +20,30 @@ export default function RecentNotesList() {
                     </TableRow>
                 </TableHeader>
                 <TableBody>
-                    {sampleData.map((item, index) => (
-                        <TableRow key={index} className="hover:bg-gray-50">
-                            <TableCell className="pl-6 py-3 font-medium text-gray-900">{item.name}</TableCell>
-                            <TableCell className="text-gray-600">{item.email}</TableCell>
-                            <TableCell className="pr-6 text-gray-600">{item.date}</TableCell>
+                    {notes?.length > 0 ? (
+                        notes.map((item, index) => (
+                            <TableRow key={index} className="hover:bg-gray-50">
+                                <TableCell className="pl-6 py-3 font-medium text-gray-900">
+                                    {item.user_name}
+                                </TableCell>
+                                <TableCell className="text-gray-600">
+                                    {item.title}
+                                </TableCell>
+                                <TableCell className="pr-6 text-gray-600">
+                                    {formatDateTime(item.created_at)}
+                                </TableCell>
+                            </TableRow>
+                        ))
+                    ) : (
+                        <TableRow>
+                            <TableCell
+                                colSpan={3}
+                                className="text-center py-6 text-gray-500"
+                            >
+                                No recent notes
+                            </TableCell>
                         </TableRow>
-                    ))}
+                    )}
                 </TableBody>
             </Table>
         </div>

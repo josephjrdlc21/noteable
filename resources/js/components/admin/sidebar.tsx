@@ -37,12 +37,6 @@ const data = {
             icon: NotebookText,
             isActive: location.pathname === notes.url(),
         },
-        {
-            title: "Activities",
-            url: "#",
-            icon: Calendar,
-            isActive: false,
-        },
     ],
 }
 

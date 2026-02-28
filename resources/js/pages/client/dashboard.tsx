@@ -1,16 +1,17 @@
 import ClientLayout from "@/layouts/client-layout"
 import AlertWelcome from "@/components/client/alert-welcome"
-import Total from "@/features/client/dashboard/total"
 import RecentNotesList from "@/features/client/dashboard/recent-notes-list"
+import { RecentNotes } from "@/types/client/dashboard"
 
-export default function Dashboard() {
+export default function Dashboard({ recent_notes }: { recent_notes: RecentNotes[] }) {
+
     return (
         <ClientLayout>
             <AlertWelcome />
 
-            <Total />
-
-            <RecentNotesList/>
+            <RecentNotesList 
+                recent_notes={recent_notes}
+            />
         </ClientLayout>
     )
 }
