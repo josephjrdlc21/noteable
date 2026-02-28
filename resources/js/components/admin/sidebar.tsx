@@ -5,6 +5,7 @@ import { Sidebar, SidebarContent, SidebarGroup, SidebarGroupContent, SidebarGrou
 import { dashboard } from "@/routes/admin"
 import { index as users } from "@/routes/admin/users"
 import { index as clients } from "@/routes/admin/clients"
+import { index as notes } from "@/routes/admin/notes"
 
 const data = {
     menu: [
@@ -32,9 +33,9 @@ const data = {
     apps: [
         {
             title: "Notes",
-            url: "#",
+            url: notes.url(),
             icon: NotebookText,
-            isActive: false,
+            isActive: location.pathname === notes.url(),
         },
         {
             title: "Activities",
