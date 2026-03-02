@@ -2,26 +2,24 @@ import { TrendingUp } from "lucide-react"
 import { CartesianGrid, Line, LineChart, XAxis } from "recharts"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { ChartContainer, ChartTooltip, ChartTooltipContent, type ChartConfig } from "@/components/ui/chart"
+import { ChartNotes } from "@/types/admin/dashboard"
 
 export const description = "A line chart"
 
 const chartData = [
-    { month: "January", desktop: 186 },
-    { month: "February", desktop: 305 },
-    { month: "March", desktop: 237 },
-    { month: "April", desktop: 73 },
-    { month: "May", desktop: 209 },
-    { month: "June", desktop: 214 },
+    { month: "January", notes: 186 },
+    { month: "February", notes: 305 },
 ]
 
 const chartConfig = {
-    desktop: {
-        label: "Desktop",
+    notes: {
+        label: "Notes",
         color: "var(--chart-1)",
     },
 } satisfies ChartConfig
 
-export default function NoteChart() {
+export default function NoteChart({ notes_charts }: { notes_charts: ChartNotes[] }) {
+
     return (
         <Card>
             <CardHeader>
@@ -32,7 +30,7 @@ export default function NoteChart() {
                 <ChartContainer config={chartConfig} className="h-[300px] w-full">
                     <LineChart
                         accessibilityLayer
-                        data={chartData}
+                        data={notes_charts}
                         margin={{
                             left: 12,
                             right: 12,
@@ -51,9 +49,9 @@ export default function NoteChart() {
                             content={<ChartTooltipContent hideLabel />}
                         />
                         <Line
-                            dataKey="desktop"
+                            dataKey="notes"
                             type="natural"
-                            stroke="var(--color-desktop)"
+                            stroke="var(--color-notes)"
                             strokeWidth={2}
                             dot={false}
                         />

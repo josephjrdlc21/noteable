@@ -3,8 +3,10 @@ import { BreadcrumbRoot, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, Breadcr
 import AdminLayout from "@/layouts/admin-layout"
 import Stats from "@/features/admin/dashboard/stats"
 import NoteChart from "@/features/admin/dashboard/note-chart"
+import { ChartNotes}  from "@/types/admin/dashboard"
 
-export default function Dashboard() {
+export default function Dashboard({ notes_charts }: { notes_charts: ChartNotes[] }) {
+
     return (
         <AdminLayout>
             <BreadcrumbRoot>
@@ -22,7 +24,9 @@ export default function Dashboard() {
 
             <Stats />
 
-            <NoteChart />
+            <NoteChart 
+                notes_charts={notes_charts} 
+            />
         </AdminLayout>
     )
 }
