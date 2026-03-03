@@ -69,5 +69,10 @@ Route::group(['prefix' => "admin", 'as' => "admin.", 'namespace' => $admin_names
             Route::any('delete/{id?}', ['as' => "delete", 'uses' => "NoteController@destroy"]);
             Route::get('show/{id?}', ['as' => "show", 'uses' => "NoteController@show"]); 
         });
+
+        Route::group(['prefix' => "profile", 'as' => "profile."], function () {
+            Route::get('/', ['as' => "index", 'uses' => "ProfileController@index"]);
+            Route::post('{id?}', ['as' => "update", 'uses' => "ProfileController@update"]);
+        });
     });
 });

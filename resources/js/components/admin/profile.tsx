@@ -4,6 +4,7 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuLabel, DropdownMenuGroup
 import { LogOut, Settings } from "lucide-react"
 import { usePage } from "@inertiajs/react"
 import { logout } from "@/routes/admin/auth"
+import { index } from "@/routes/admin/profile"
 import { initialsFormat } from "@/lib/utils"
 
 export default function Profile() {
@@ -18,7 +19,7 @@ export default function Profile() {
                         <AvatarImage src={`${auth.admin?.directory}/${auth.admin?.filename}`}  alt="profile" />
                         <AvatarFallback>{initialsFormat(auth.admin?.name)}</AvatarFallback>
                     </Avatar>
-                    <span className="text-sm font-medium">John Smith</span>
+                    <span className="text-sm font-medium">{auth.admin?.name}</span>
                 </div>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
@@ -31,7 +32,7 @@ export default function Profile() {
                 <DropdownMenuSeparator />
                 <DropdownMenuGroup>
                     <DropdownMenuItem asChild className="cursor-pointer">
-                        <a href="#"><Settings/> Settings </a>
+                        <a href={index.url()}><Settings/> Settings </a>
                     </DropdownMenuItem>
                     <DropdownMenuItem asChild className="cursor-pointer">
                         <a href={logout.url()}><LogOut/> Logout</a>

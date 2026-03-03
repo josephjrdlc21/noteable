@@ -7,8 +7,12 @@ import { Button } from "@/components/ui/button"
 import Footer from "@/components/admin/footer"
 import AppNotification from "@/components/app-notification"
 import Profile from "@/components/admin/profile"
+import { usePage } from "@inertiajs/react"
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
+
+    const { auth } = usePage().props
+
     return(
         <SidebarProvider>
             <AppSidebar />
@@ -17,7 +21,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                     <div className="flex items-center gap-2">
                         <SidebarTrigger className="-ml-1" />
                         <Separator orientation="vertical" className="h-6" />
-                        <h2 className="text-lg font-medium hidden lg:block">Good Morning, John Smith</h2>
+                        <h2 className="text-lg font-medium hidden lg:block">Good Day, {auth.admin?.name}</h2>
                     </div>
                     
                     <div className="flex items-center gap-4">
