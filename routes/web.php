@@ -12,6 +12,10 @@ Route::group(['as' => "client.", 'namespace' => $namespace], function() {
     Route::group(['as' => "auth."], function () {
         Route::get('login', ['as' => "login", 'uses' => "AuthenticateController@login", 'middleware' => "client.guest"]);
         Route::post('authenticate', ['as' => "authenticate", 'uses' => "AuthenticateController@authenticate", 'middleware' => "client.guest"]);
+        Route::get('register', ['as' => "register", 'uses' => "AuthenticateController@register", 'middleware' => "client.guest"]);
+        Route::post('store-register', ['as' => "store_register", 'uses' => "AuthenticateController@store_register", 'middleware' => "client.guest"]);
+        Route::get('verify/{token?}', ['as' => "verify", 'uses' => "AuthenticateController@verify", 'middleware' => "client.guest"]);
+        Route::post('store-verify/{token?}', ['as' => "store_verify", 'uses' => "AuthenticateController@store_verify", 'middleware' => "client.guest"]);
         Route::get('logout', ['as' => "logout", 'uses' => "AuthenticateController@logout", 'middleware' => "client.auth"]);
     });
 

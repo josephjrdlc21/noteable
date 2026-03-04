@@ -24,6 +24,26 @@ class AuthenticateController extends Controller{
         return $this->authenticate_repository->authenticate($request->validated());
     }
 
+    public function register(PageRequest $request) {
+
+        return $this->authenticate_repository->register();    
+    }
+
+    public function store_register(PageRequest $request) {
+
+        return $this->authenticate_repository->store_register($request->all());
+    }
+
+    public function verify(PageRequest $request, $token = null) {
+
+        return $this->authenticate_repository->verify($token);
+    }
+
+    public function store_verify(PageRequest $request, $token = null) {
+
+        return $this->authenticate_repository->store_verify($token, $request->all());
+    }
+
     public function logout(PageRequest $request) {
 
         return $this->authenticate_repository->logout();
